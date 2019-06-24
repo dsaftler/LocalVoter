@@ -3,13 +3,28 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    {{!-- <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8"> --}}
+
+    {{!-- jquery --}}
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+      
   <title>Home Page</title>
 </head>
 
 <body>
-  {{{body}}}
+  <div class="row">
+    <div class="col s1" style="background-color: lightgray"></div>
+    <div class="col s10">{{{body}}}</div>
+    <div class="col s1" style="background-color: lightgray"></div>
+  </div>
 </body>
 
 </html>
