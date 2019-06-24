@@ -15,11 +15,11 @@ app.use(express.json());
 require("./routes/htmlRoutes")(app);
 
 //handlebars
-var exphbs = require('express-handlebars');
+var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.listen(PORT, function() {
-  console.log('connected at port ' + PORT)
-})
+  console.log("connected at port " + PORT);
+});

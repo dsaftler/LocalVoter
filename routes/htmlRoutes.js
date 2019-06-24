@@ -4,6 +4,6 @@ module.exports = function(app) {
   });
 
   app.get("/bills", function(req, res) {
-    res.render("loadbills");
+    res.render("bill-display");
   });
 };
