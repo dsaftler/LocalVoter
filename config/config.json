@@ -1,15 +1,15 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "P35c@d0r3",
+    "database": "local_voter",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
+    "username": "user",
+    "password": "MockTurb0Stu#ing",
+    "database": "local_voter",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
