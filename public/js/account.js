@@ -1,6 +1,17 @@
 $("#loginUser").on("click", (event) => {
   console.log("logged in");
-  //ajax goes here
+  let existingUser = {
+    username: $("#usernameLI").val().trim(),
+    password: $("#passwordLI").val().trim()
+  };
+
+  $.ajax({
+    type: "POST",
+    url: "/api/login",
+    data: existingUser
+  }).then( (data) => {
+    console.log(data)
+  })
 })
 
 $("#createUser").on("click", (event) => {
