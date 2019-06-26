@@ -13,6 +13,7 @@ app.use(express.json());
 
 //routes
 require("./routes/htmlRoutes")(app);
+require("./routes/apiRoutes")(app);
 
 //handlebars
 var exphbs = require("express-handlebars");
