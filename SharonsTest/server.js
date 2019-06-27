@@ -1,5 +1,5 @@
-var exportRepsInfo = require("./representativesJson")
-var exportBillInfo = require("./billsJson");
+var exportRepsInfo = require("../api/billtrack50/representativesJson")
+var exportBillInfo = require("../api/billtrack50/billsJson");
 var express = require("express")
 var handlebars = require("express-handlebars");
 var app = express()
