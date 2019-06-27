@@ -1,7 +1,7 @@
 <h1>Bills</h1>
 
 
-  {{#each billsInfo}}
+  {{#each billsData}}
   <form style = "border: 2px solid"> 
   <div class="form-group">
     <label for="BillIDBillName"><b>{{StateBillID}}</b> : {{BillName}}</label>
@@ -31,7 +31,7 @@
 
 
 <button id="status"><a href="/active">Click me to see active stuffs!!</a></button>
-{{#each billsInfoActive}}
+{{#each billsDataActive}}
   <form style = "border: 2px solid"> 
   <div class="form-group">
     <label for="BillIDBillName"><b>{{StateBillID}}</b> : {{BillName}}</label>

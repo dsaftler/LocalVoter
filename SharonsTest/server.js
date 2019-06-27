@@ -13,13 +13,12 @@ var PORT = process.env.PORT || 8080;
 app.get("/", function(req, res){
     var billsInfo = exportBillInfo.billsInfo
        // res.json(billsInfo)
-        res.render("index", {billsInfo})
-   
-   })
+        res.render("index", {billsData: billsInfo})
+   });
 app.get("/active", function(req, res){
     var billsInfoActive = exportBillInfo.billsInfoActive
-    res.render("index", {billsInfoActive})
-    })
+    res.render("index", {billDataActive: billsInfoActive});
+    });
 
 app.get("/contactPage", function(req, res){
     var officials = exportRepsInfo.officials
