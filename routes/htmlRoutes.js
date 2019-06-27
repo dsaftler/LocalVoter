@@ -1,3 +1,7 @@
+//imported API calls
+var exportRepsInfo = require("../api/billtrack50/representativesJson");
+var exportBillInfo = require("../api/billtrack50/billsJson");
+
 module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("home");
@@ -12,6 +16,17 @@ module.exports = function(app) {
   });
 
   app.get("/bills", function(req, res) {
-    res.render("bill-display");
+    var billsInfo = exportBillInfo.billsInfo;
+    res.render("bill-display", { billsData: billsInfo });
+  });
+
+  app.get("/bills/active", function(req, res) {
+    var billsInfoActive = exportBillInfo.billsInfoActive;
+    res.render("bill-display", { billsData: billsInfoActive });
+  });
+
+  app.get("/representatives", function(req, res) {
+    var officials = exportRepsInfo.officials;
+    res.render("reps", { officialsData: officials });
   });
 };
