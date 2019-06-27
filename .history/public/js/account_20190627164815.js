@@ -1,7 +1,7 @@
 $("#loginUser").on("click", event => {
   console.log("logged in");
   let existingUser = {
-    email: $("#usernameLI")
+    username: $("#usernameLI")
       .val()
       .trim(),
     password: $("#passwordLI")
@@ -21,7 +21,7 @@ $("#loginUser").on("click", event => {
 $("#createUser").on("click", event => {
   console.log("user created");
   let newUser = {
-    email: $("#usernameSU")
+    username: $("#usernameSU")
       .val()
       .trim(),
     password: $("#passwordSU")

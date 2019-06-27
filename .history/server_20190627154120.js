@@ -1,5 +1,6 @@
 // Dependencies
 require("dotenv").config();
+const SHA2 = require("sha2");
 var db = require("./models");
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
@@ -8,7 +9,7 @@ let express = require("express");
 
 let app = express();
 // var PORT = 3000;
-let PORT = process.env.PORT || 3000;
+let PORT = process.env.PORT || 8080;
 
 let syncOptions = { force: false };
 
@@ -20,13 +21,13 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
-  // app.listen(PORT, function() {
-  //   console.log(
-  //     "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-  //     PORT,
-  //     PORT
-  //   );
-  // });
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
 });
 
 // Serve static content for the app from the "public" directory in the application directory.

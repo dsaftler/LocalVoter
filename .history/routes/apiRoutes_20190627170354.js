@@ -1,4 +1,3 @@
-
 let db = require("../models");
 let passport = require("../config/passport");
 
@@ -19,9 +18,7 @@ module.exports = app => {
   app.post("/api/signup", function(req, res) {
     db.User.create({
       email: req.body.email,
-      password: req.body.password,
-      state: req.body.state,
-      zip: req.body.zip
+      password: req.body.password
     })
       .then(function() {
         res.redirect(307, "/api/login");
@@ -29,6 +26,7 @@ module.exports = app => {
       .catch(function(err) {
         res.status(401).json(err);
       });
+  });
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     db.User.findAll({
@@ -41,7 +39,6 @@ module.exports = app => {
     });
     // console.log(req.body);
   });
-  
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
