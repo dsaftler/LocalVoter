@@ -1,5 +1,6 @@
 // Dependencies
 require("dotenv").config();
+const SHA2 = require("sha2");
 var db = require("./models");
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";

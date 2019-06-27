@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS local_voter;
+CREATE DATABASE local_voter;
+
+DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;

@@ -4,7 +4,7 @@ VALUES ("NancyM","432jfdFDS","nmeyer@gmail.com","FL","33146","2019-06-25 02:23:4
 ("bpeachtree","142ew5","bpeachtree@gmail.com","FL","33607","2019-06-25 02:23:43","2019-06-25 02:23:43"),
 ("lbrantly","142ew5","lbrantly@gmail.com","FL","32801","2019-06-25 02:23:43","2019-06-25 02:23:43"),
 ("MartinLockheed","142ew5","mlockheed@gmail.com","FL","332244","2019-06-25 02:23:43","2019-06-25 02:23:43"),
-("BernieTraub","142ew5","bvtraub@att.net","FL","33442","2019-06-25 02:23:43","2019-06-25 02:23:43"),
+("BennieTraub","142ew5","bvtraub@att.net","FL","33442","2019-06-25 02:23:43","2019-06-25 02:23:43"),
 ("KSPear","142ew5","kileypear@verizon.net","FL","33067","2019-06-25 02:23:43","2019-06-25 02:23:43"),
 ("donnaB","142ew5","bpeachtree@gmail.com","FL","32003","2019-06-25 02:23:43","2019-06-25 02:23:43")
 
