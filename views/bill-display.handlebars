@@ -6,6 +6,8 @@
   </div>
 </div>
 
-<div class="container" style="background-color: lightblue; min-height: 100vh">
-  {{> bill-block}}
+<div class="results"></div>
+  {{#each billsData}}
+    {{> bill-block}}
+  {{/each}}
 </div>

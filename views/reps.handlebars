@@ -1,0 +1,22 @@
+{{#each officialsData}}
+  <form style = "border: 2px solid"> 
+  <div class="form-group">
+      <img style = "height: 250px; width:250px" src={{photoUrl}}>
+    <label for="RepName"><b>{{repName}}</b> : {{repName}}</label>
+  </div>
+  <div class="form-group">
+    <label for="party"> {{party}}</label>
+  </div>
+    <div class="form-group">
+    <label for="phones"> {{phones}}</label>
+  </div>
+   <div class="form-group">
+    <label for="urls"><b>More Info</b>: <a href={{urls}}>{{urls}}</a></label>
+  </div>
+  <div class="form-group">
+    <label for="socialMedia"><b>Social Media</b>:</label>
+    <textarea class="form-control" id="socialMedia" rows="3">{{socialMedia}}</textarea>
+  </div>
+</form>
+<br>
+  {{/each}}

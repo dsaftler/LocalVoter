@@ -1,3 +1,4 @@
+
 let db = require("../models");
 let passport = require("../config/passport");
 
@@ -28,7 +29,6 @@ module.exports = app => {
       .catch(function(err) {
         res.status(401).json(err);
       });
-  });
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     db.User.findAll({
