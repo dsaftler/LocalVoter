@@ -28,7 +28,9 @@ module.exports = function(app) {
 
   app.get("/bills/bill=:billNumber", function(req, res) {
     let billData = selectedBillInfo(req.params.billNumber);
-    billData.then(function(selectedBillData) {console.log(selectedBillData)})
+    billData.then(function(selectedBillData) {
+      res.render("bill-moreinfo", { selectedBillData } )
+    })
   });
 
   app.get("/representatives", function(req, res) {

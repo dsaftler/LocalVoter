@@ -1,0 +1,14 @@
+{{#each selectedBillData}}
+  <h2>{{BillName}}</h2>
+  <hr>
+  <div style="text-align: center;">
+    <p>State Bill ID: {{StateBillID}} || Creation Date: {{Created}} || Bill Progress: {{BillProgress}}</p>
+  </div>
+  <hr>
+
+  <h5>{{Summary}}</h5>
+  <p>Last action on bill: {{LastAction}} - {{ActionDate}}</p>
+  <hr>
+  <p>Bill Sponsers: {{Sponsors}}</p>
+  <p><a href="{{OfficialDocument}}">Official Document</a></p>
+{{/each}}
