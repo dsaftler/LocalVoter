@@ -26,7 +26,6 @@ axios.get("https://www.googleapis.com/civicinfo/v2/representatives?address=" + z
       socialMedia
     })
   }
-  console.log(officials)
 
 })
 module.exports = {
