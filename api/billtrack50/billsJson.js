@@ -1,7 +1,10 @@
 let db = require("../../models");
 var axios = require("axios")
 axios.defaults.headers.common['Authorization'] = "apikey 0875949d-d6ea-424c-84ae-9d47c50ea371";
-
+console.log('dbUser: '+'*');
+console.log('db: ' + '*');
+console.log('User: ' + '*');
+console.log('Session: ' + '*');
 var get_cookies = function (request) {
   var cookies = {};
   request.headers && request.headers.cookie.split(';').forEach(function (cookie) {

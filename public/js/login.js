@@ -7,7 +7,7 @@ let passwordInput = $("#passwordLI");
 // When the form is submitted, we validate there's an email and password entered
 $("#loginUser").on("click", function(event) {
   // loginForm.on("submit", function(event) {
-  // event.preventDefault();
+  event.preventDefault();
   let existingUser = {
     email: emailInput.val().trim(),
     password: passwordInput.val().trim()
@@ -28,7 +28,11 @@ function loginUser(email, password) {
   $.post("/api/login", {
     email: email,
     password: password
-  });
+  }) .then(function () {
+         window.location.replace("/bills/all");
+         // If there's an error, log the error
+       });
+
   $.get("/api/user_data")
     .then(function(data) {
       console.log(data);
