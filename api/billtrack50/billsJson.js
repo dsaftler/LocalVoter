@@ -11,65 +11,46 @@ var get_cookies = function (request) {
   });
   return cookies;
 };
-var stateCode = "FL"
-var billsInfo = []
-var billsInfoActive = []
-axios.get("https://www.billtrack50.com/BT50Api/2.0/json/Bills?SearchText=n/a&StateCodes=" + stateCode).then(function (res) {
 
-    for (i = 0; i < res.data.Bills.length; i++) {
-      var BillID = res.data.Bills[i].BillID
-      var StateBillID = res.data.Bills[i].StateBillID
-      var StateCode = res.data.Bills[i].StateCode
-      var BillName = res.data.Bills[i].BillName
-      var Summary = res.data.Bills[i].Summary
-      var Sponsors = res.data.Bills[i].Sponsors
-      var LastAction = res.data.Bills[i].LastAction
-      var ActionDate = res.data.Bills[i].ActionDate
-      var BillProgress = res.data.Bills[i].BillProgress
-      var OfficialDocument = res.data.Bills[i].OfficialDocument
-      var Created = res.data.Bills[i].Created
+module.exports = function(state) {
+  let stateCode = state
+  let billsInfo = []
+  let billsInfoActive = []
+  
+  return new Promise(function(resolve, reject) {
+    axios.get("https://www.billtrack50.com/BT50Api/2.0/json/Bills?SearchText=n/a&StateCodes=" + stateCode).then(function (res) {
 
-      billsInfo.push({
-        BillID,
-        StateBillID,
-        StateCode,
-        BillName,
-        Summary,
-        Sponsors,
-        LastAction,
-        ActionDate,
-        BillProgress,
-        OfficialDocument,
-        Created
-      })
+        for (i = 0; i < res.data.Bills.length; i++) {
+          var BillID = res.data.Bills[i].BillID
+          var StateBillID = res.data.Bills[i].StateBillID
+          var StateCode = res.data.Bills[i].StateCode
+          var BillName = res.data.Bills[i].BillName
+          var Summary = res.data.Bills[i].Summary
+          var Sponsors = res.data.Bills[i].Sponsors
+          var LastAction = res.data.Bills[i].LastAction
+          var ActionDate = res.data.Bills[i].ActionDate
+          var BillProgress = res.data.Bills[i].BillProgress
+          var OfficialDocument = res.data.Bills[i].OfficialDocument
+          var Created = res.data.Bills[i].Created
 
-
-      if (BillProgress === "1 - Introduced" || BillProgress === "2 - In Committee" || BillProgress === "3 - Crossed Over" || BillProgress === "4 - Passed") {
-        billsInfoActive.push({
-          BillID,
-          StateBillID,
-          StateCode,
-          BillName,
-          Summary,
-          Sponsors,
-          LastAction,
-          ActionDate,
-          BillProgress,
-          OfficialDocument,
-          Created
-        })
-      }
-    }
-    //module.exports = { billsInfo: billsInfo };
-    //console.log(billsInfo);
-
-  })
-  .catch(function (err, res) {
-    console.log(err)
-  })
-
-
-module.exports = {
-  billsInfo: billsInfo,
-  billsInfoActive: billsInfoActive
+          billsInfo.push({
+            BillID,
+            StateBillID,
+            StateCode,
+            BillName,
+            Summary,
+            Sponsors,
+            LastAction,
+            ActionDate,
+            BillProgress,
+            OfficialDocument,
+            Created
+          });
+        };
+      }).then(function(res) {
+        resolve(billsInfo)
+      }).catch(function(err) {
+        console.log(err)
+      });
+    });
 };
