@@ -21,8 +21,8 @@ module.exports = app => {
   });
 
   app.post("/api/login/", passport.authenticate("local"), function(req, res) {
-    successRedirect: '/bills/all/state=:req.state';
-    failureRedirect: '/login';
+    //successRedirect: '/bills/all/state=:req.state';
+    //failureRedirect: '/login';
     // req.session[zip] = req.zip;
     // req.session[state] = req.state;
     // res.json(req.user);
@@ -44,12 +44,12 @@ module.exports = app => {
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
-      console.log(dbUser);
+      console.log(res);
       res.json({
         email: req.user.email,
         state: req.user.state,
         zip: req.user.zip,
-        id: req.user.id
+        id: req.user.uid
       })
       console.log(res.json);;
     }

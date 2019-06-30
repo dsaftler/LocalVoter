@@ -29,8 +29,10 @@ function loginUser(email, password) {
     email: email,
     password: password
   }) .then(function () {
-         window.location.replace("/bills/all");
-         // If there's an error, log the error
+    // var mystate = user.state
+    //console.log(user.state)
+    window.location.replace("/bills/all");
+        // If there's an error, log the error
        });
 
   $.get("/api/user_data")
