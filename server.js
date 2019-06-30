@@ -1,12 +1,26 @@
 // Dependencies
 require("dotenv").config();
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 var db = require("./models");
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
 
-let express = require("express");
-
-let app = express();
+var express = require("express");
+const session = require('express-session')
+var app = express();
+// app.use(require('serve-static')(__dirname + './public'));
+var cookieParser = require('cookie-parser');
+app.use(cookieParser());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({
+  // secret: process.env.SESSION_SECRET,
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 // var PORT = 3000;
 let PORT = process.env.PORT || 3000;
 
@@ -20,13 +34,7 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
-  // app.listen(PORT, function() {
-  //   console.log(
-  //     "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-  //     PORT,
-  //     PORT
-  //   );
-  // });
+
 });
 
 // Serve static content for the app from the "public" directory in the application directory.
@@ -35,6 +43,7 @@ app.use(express.static("public"));
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 // routes
 require("./routes/htmlRoutes")(app);

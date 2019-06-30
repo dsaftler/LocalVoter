@@ -1,5 +1,16 @@
+let db = require("../../models");
+let passport = require("passport");
 var axios = require("axios")
 axios.defaults.headers.common['Authorization'] = "apikey 0875949d-d6ea-424c-84ae-9d47c50ea371";
+
+var get_cookies = function (request) {
+  var cookies = {};
+  request.headers && request.headers.cookie.split(';').forEach(function (cookie) {
+    var parts = cookie.match(/(.*?)=(.*)$/)
+    cookies[parts[1].trim()] = (parts[2] || '').trim();
+  });
+  return cookies;
+};
 
 module.exports = function(state) {
   let stateCode = state
@@ -42,4 +53,4 @@ module.exports = function(state) {
         console.log(err)
       });
     });
-}
+};
