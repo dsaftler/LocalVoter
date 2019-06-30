@@ -17,8 +17,11 @@ module.exports = function(app) {
   });
 
   app.get("/bills/all", function(req, res) {
-    var billsInfo = exportBillInfo.billsInfo;
-    res.render("bill-display", { billsData: billsInfo });
+    let state = "fl"
+    let billsInfo = exportBillInfo(state)
+    billsInfo.then(function(allBillInfo) {
+      res.render("bill-display", { billsData: allBillInfo })
+    });
   });
 
   app.get("/bills/active", function(req, res) {
