@@ -1,22 +1,37 @@
-$("#loginUser").on("click", event => {
-  console.log("logged in");
-  let existingUser = {
-    email: $("#usernameLI")
-      .val()
-      .trim(),
-    password: $("#passwordLI")
-      .val()
-      .trim()
-  };
-
-  $.ajax({
-    type: "POST",
-    url: "/api/login",
-    data: existingUser
-  }).then(data => {
-    console.log(data);
-  });;
-});;
+// $("#loginUser").on("click", event => {
+//   console.log("logged in");
+//   var existingUser = {
+//     email: $("#usernameLI")
+//       .val()
+//       .trim(),
+//     password: $("#passwordLI")
+//       .val()
+//       .trim()
+//   };
+//   if (!existingUser.email || !existingUser.password) {
+//     return;
+//   }
+//   function loginUser(email, password) {
+//     $.post("/api/login", {
+//       email: email,
+//       password: password
+//     })
+//       .then(function () {
+//         window.location.replace("/bills/all");
+//         // If there's an error, log the error
+//       })
+//       .catch(function (err) {
+//         console.log(err);
+//       });
+//   }
+//   // $.ajax({
+//   //   type: "POST",
+//   //   url: "/api/login",
+//   //   data: existingUser
+//   // }).then(data => {
+//   //   console.log(data);
+//   // });
+// });
 
 $("#createUser").on("click", event => {
   console.log("user created");

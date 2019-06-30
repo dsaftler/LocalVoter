@@ -25,6 +25,11 @@ module.exports = function(app) {
     var billsInfoActive = exportBillInfo.billsInfoActive;
     res.render("bill-display", { billsData: billsInfoActive });
   });
+  
+  app.get("/bills/statecode=:statecode", function (req, res) {
+    var billsUserState = exportBillInfo.billsUserState;
+    res.render("bill-display", { billsData: billsUserState });
+  });
 
   app.get("/bills/bill=:billNumber", function(req, res) {
     let billData = selectedBillInfo(req.params.billNumber);

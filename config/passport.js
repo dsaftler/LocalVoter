@@ -1,7 +1,9 @@
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
+let passport = require("passport");
+let LocalStrategy = require("passport-local").Strategy;
 
-var db = require("../models");
+let db = require("../models");
+
+//var dbUser;
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
@@ -12,10 +14,13 @@ passport.use(
     },
     function(email, password, done) {
       // When a user tries to sign in this code runs
+      
       db.User.findOne({
         where: {
           email: email
         }
+
+        
       }).then(function(dbUser) {
         // If there's no user with the given email
         if (!dbUser) {
@@ -23,6 +28,7 @@ passport.use(
             message: "Incorrect email."
           });
         }
+        // console.log(db.User);
         // If there is a user with the given email, but the password the user gives us is incorrect
         else if (!dbUser.validPassword(password)) {
           return done(null, false, {
@@ -40,11 +46,16 @@ passport.use(
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser(function(user, cb) {
-  cb(null, user);
+  var userObj = {
+    uid: user.id,
+    state: user.state,
+    zip: user.zip
+    }
+  cb(null, userObj);
 });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function(id, cb) {
+  cb(null, id);
 });
 
 // Exporting our configured passport
