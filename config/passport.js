@@ -36,6 +36,7 @@ passport.use(
           });
         }
         // If none of the above, return the user
+        
         return done(null, dbUser);
       });
     }
@@ -49,7 +50,8 @@ passport.serializeUser(function(user, cb) {
   var userObj = {
     uid: user.id,
     state: user.state,
-    zip: user.zip
+    zip: user.zip,
+    username: user.username
     }
   cb(null, userObj);
 });

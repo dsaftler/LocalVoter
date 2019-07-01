@@ -1,21 +1,24 @@
 let db = require("../../models");
+// var express = require(‘express’);
+// var app = express();
 let passport = require("passport");
 var axios = require("axios")
 axios.defaults.headers.common['Authorization'] = "apikey 0875949d-d6ea-424c-84ae-9d47c50ea371";
-
-var get_cookies = function (request) {
-  var cookies = {};
-  request.headers && request.headers.cookie.split(';').forEach(function (cookie) {
-    var parts = cookie.match(/(.*?)=(.*)$/)
-    cookies[parts[1].trim()] = (parts[2] || '').trim();
-  });
-  return cookies;
-};
+//var state = cookie.parse('state');
+// console.dir(req.cookies.name) 
+// var get_cookies = function (request) {
+//   var cookies = {};
+//   request.headers && request.headers.cookie.split(';').forEach(function (cookie) {
+//     var parts = cookie.match(/(.*?)=(.*)$/)
+//     cookies[parts[1].trim()] = (parts[2] || '').trim();
+//   });
+//   return cookies;
+// };
 
 module.exports = function(state) {
-  let stateCode = state
-  let billsInfo = []
-  let billsInfoActive = []
+  let stateCode = state;
+  let billsInfo = [];
+  let billsInfoActive = [];
   
   return new Promise(function(resolve, reject) {
     axios.get("https://www.billtrack50.com/BT50Api/2.0/json/Bills?SearchText=n/a&StateCodes=" + stateCode).then(function (res) {

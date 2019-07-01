@@ -5,12 +5,12 @@ var LocalStrategy = require("passport-local").Strategy;
 var db = require("./models");
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
+var cookieParser = require('cookie-parser');
 
 var express = require("express");
 const session = require('express-session')
 var app = express();
 // app.use(require('serve-static')(__dirname + './public'));
-var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({
@@ -18,7 +18,7 @@ app.use(require('express-session')({
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true
-}));
+ }));
 app.use(passport.initialize());
 app.use(passport.session());
 // var PORT = 3000;
@@ -27,7 +27,7 @@ let PORT = process.env.PORT || 3000;
 let syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
-// clearing the `testdb`
+// clearing the `testdb` 
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
