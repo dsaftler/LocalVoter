@@ -57,8 +57,11 @@
                     <input placeholder="Zipcode" id="zipcodeSU" type="text" class="validate">
                     <label for="zipcodeSU" style="color:darkred">Zipcode</label>
                   </div>
-
-                  <div class="input-field col s6">
+<div class="input-field form-control col s12 offset-s2 m5">
+  <input id="stateCodeSU" type="text" class="validate">
+  <label for="stateCodeSU">State</label>
+</div>
+                  {{!-- <div class="input-field col s6">
                     <select id="stateCodeSU">
                       <option value="" disabled selected>Select Your State</option>
                       <option value="AL">Alabama</option>
@@ -113,12 +116,12 @@
                       <option value="WY">Wyoming</option>
                     </select>
                     <label>State</label>
-                  </div>
+                  </div> --}}
                 </div>
 
 
                 <div class="form-field">
-                <a href="/bills/all"><button class="btn-large red accent-4 waves-effect waves-light btn" id="loginUser"
+                <a href="/bills/all"><button class="btn-large red accent-4 waves-effect waves-light btn" id="createUser"
                     style="width:100%">Create Account</button></a>
               </div><br>
                 <br>
@@ -139,11 +142,11 @@
     </div>
 
 <script src="/js/account.js"></script>
-<script>  // Or with jQuery
+{{!-- <script>  // Or with jQuery
 
   $(document).ready(function () {
     $('select').formSelect();
   });
 
-  instance.getSelectedValues();
-</script>
+  {{!-- instance.getSelectedValues(); --}}
+</script> --}}

@@ -16,8 +16,8 @@ module.exports = app => {
       res.status(401).json(err);
       console.log(err);
     });
-    console.log(dbUser);
-    console.log(db.User);
+    // console.log(dbUser);
+    // console.log(db.User);
   });
 
   app.post("/api/login/", passport.authenticate("local"), function(req, res) {
@@ -51,7 +51,7 @@ module.exports = app => {
         zip: req.user.zip,
         id: req.user.uid
       })
-      console.log(res.json);;
+      console.log(res.json);
     }
   });
 };
