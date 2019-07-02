@@ -10,7 +10,7 @@ Local Voter Created by:
 
 ### About ###
 
-This app is for users who want to take more of a role in their local government and track bills in a state of their interested.
+This app is for users who want to take more of a role in their local government and track bills in a state of interest.
 
 -------------
 
@@ -24,7 +24,7 @@ Bills 50, Pro Publica, & Google Civics
 ### Hosted on Heroku ###
 Link: --->
 
-20190628: DVS: 
+<!-- 20190628: DVS: 
 1.  added /public/login.js
 2.  added form & autocomplete to login & signup handlebars
 3.  broke out login.js from account.js for <script>
@@ -37,4 +37,4 @@ Switched to cookies, but they aren't available from API either
 Net Net is there is a cookie object with {passport} object with Id, State, & Zip, but can't get to it.
 EITHER:
 I have to find a way to get the cookie, or I have to pass the User ID in the URL and figure out how to do a sql call from the api sites.
-There aren't enough swear words.
+There aren't enough swear words. -->
