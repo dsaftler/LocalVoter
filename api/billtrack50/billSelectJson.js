@@ -1,4 +1,8 @@
+require("dotenv").config();
+var keys = require("./keys.js")
 var axios = require("axios")
+//var Axios = require("axios")
+//var axios = new Axios(axios.defaults.headers.common[keys.billtrack50]);
 axios.defaults.headers.common['Authorization'] = "apikey 0875949d-d6ea-424c-84ae-9d47c50ea371";
 
 module.exports = function(selectedBillID) {
