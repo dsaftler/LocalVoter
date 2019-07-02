@@ -16,7 +16,11 @@ if (config.use_env_variable) {
     config.username,
     config.password,
     config
-  );
+  ,{
+     host: 'localhost',
+ dialect: /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
+});
+  
 }
 
 fs.readdirSync(__dirname)

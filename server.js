@@ -21,7 +21,7 @@ app.use(require('express-session')({
   resave: true,
   saveUninitialized: true
 }));
-app.use(session({ secret: 'localvoter', reserve: true, saveUninitialized: true}));
+
 app.use(passport.initialize());
 app.use(passport.session());
 // var PORT = 3000;
