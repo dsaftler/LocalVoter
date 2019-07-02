@@ -1,6 +1,6 @@
 var axios = require("axios")
 var zipcode = "33602"
-var googlAPI = "AIzaSyCbC-q0n1vMIzkpr7k7HvngMZTD9OxrnlQ"
+var googlAPI = process.env.googlAPI
 var officials = []
 
 

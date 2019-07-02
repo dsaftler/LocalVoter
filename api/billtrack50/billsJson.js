@@ -1,5 +1,5 @@
 require("dotenv").config();
-var keys = require("./keys.js")
+var keys = require("../../keys.js")
 let db = require("../../models");
 let passport = require("passport");
 var axios = require("axios")

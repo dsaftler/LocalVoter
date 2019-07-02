@@ -1,5 +1,5 @@
 require("dotenv").config();
-var keys = require("./keys.js")
+var keys = require("../../keys.js")
 var axios = require("axios")
 //var Axios = require("axios")
 //var axios = new Axios(axios.defaults.headers.common[keys.billtrack50]);

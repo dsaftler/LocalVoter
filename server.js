@@ -17,8 +17,7 @@ var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({
-  // secret: process.env.SESSION_SECRET,
-  secret: 'keyboard cat',
+  secret: process.env.SESSION_SECRET,
   resave: true,
   saveUninitialized: true
 }));
