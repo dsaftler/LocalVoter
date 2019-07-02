@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "P35c@d0r3",
+    "password": "passsword",
     "database": "local_voter",
     "host": "localhost",
     "dialect": "mysql"
@@ -15,7 +15,7 @@
     "logging": false
   },
   "production": {
-    "use_env_variable": "mysql://us9xtkzn0xegjvjx:fet8molm1f9vtomi@k3xio06abqa902qt.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/lh7dac5nh5rjujbp",
+    "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
 }
