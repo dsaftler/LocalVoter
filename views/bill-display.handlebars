@@ -1,13 +1,64 @@
-<h1>bills</h1>
+   <!-- Nav Bar -->
+  <nav class="indigo darken-4" role="navigation">
+    <div class="nav-wrapper container"><a href="/"><img id="logo-container" class="brand-logo center"
+        src="/assets/LocalVoter_Icon_White.png" alt="Logo" style="height:60px; margin-top:10px"></a>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="">My Tracked Bills</a></li>
+      </ul>
+      <ul class="left hide-on-med-and-down">
+        <li><a href="">My Local Representatives</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/" class="btn white" style="color:darkblue">Log Out</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">My Settings</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="">My Tracked Bills</a></li>
+        <li><a href="">My Local Reps</a></li>
+        <li><a href=""></a>My Settings</li>
+        <li><a href="/"></a>Log Out</li>
+      </ul>
+
+
+      <a href="" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> 
 
 <div class="row">
-  <div class="col s12" style="background-color: lightgray">
-    <h2>nav bar</h2>
+  <div class="col s12 m6 offset-m3" style="">
+    <div class="nav-wrapper">
+      <br>
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" placeholder="Search A Bill">
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+          <!-- Switch -->
+          <div class="switch">
+            <label>
+              Inactive
+              <input type="checkbox">
+              <span class="lever"></span>
+              Active
+            </label>
+          </div>
+          <!--chips-->
+
+          <!--chips-->
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
 <div class="results">
   {{#each billsData}}
-    {{> bill-block}}
+  {{> bill-block}}
   {{/each}}
 </div>
+<script>
+  $('.chips').chips();
+</script>
