@@ -18,7 +18,7 @@ if (config.use_env_variable) {
     config
   ,{
      host: 'localhost',
- dialect: /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
+ dialect: 'mysql'
 });
   
 }
