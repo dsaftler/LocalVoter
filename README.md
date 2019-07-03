@@ -28,4 +28,4 @@ Axios for API calls
 Materialize as CSS
 
 ### Hosted on Heroku ###
-Link: --->
+Link: ---> https://stark-peak-64015.herokuapp.com/
