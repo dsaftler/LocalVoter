@@ -62,20 +62,20 @@ function getCookie(name) {
 
 
 
-$("#loginUser").on("click", function(){
+// $("#loginUser").on("click", function(){
 
 
-var usersEmail = {email: $("#usernameLI").val().trim()}
-console.log(usersEmail.email)
+// var usersEmail = {email: $("#usernameLI").val().trim()}
+// console.log(usersEmail.email)
 
- $.ajax({
-   type: "POST",
-   url: "/bills/all",
-   data: usersEmail
- }).then(data => {
-  // res.render("bill-display", { usersEmail})
-   console.log(data);
+//  $.ajax({
+//    type: "POST",
+//    url: "/bills/all",
+//    data: usersEmail
+//  }).then(data => {
+//   // res.render("bill-display", { usersEmail})
+//    console.log(data);
 
- });
+//  });
 
-})
+// })

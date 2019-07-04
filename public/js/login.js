@@ -22,7 +22,18 @@ $("#loginUser").on("click", function (event) {
   // If we have an email and password we run the loginUser function and clear the form
   loginUser(email, password);
   setTimeout(makeUserCookie(),1000);
-  
+  // var usersEmail = {email: $("#usernameLI").val().trim()}
+  // console.log(usersEmail.email)
+
+ $.ajax({
+   type: "POST",
+   url: "/bills/all",
+   data: existingUser
+ }).then(data => {
+  // res.render("bill-display", { usersEmail})
+   console.log(data);
+
+ });
   var myVal = getCookie("State");
   console.log(myVal);
   setTimeout(window.location.replace("/bills/all"), 1000);

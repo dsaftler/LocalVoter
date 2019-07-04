@@ -119,6 +119,44 @@
 </div>
 <script src="/js/account.js"></script>
 <script>  // Or with jQuery
+
+$(".switch").find("input[type=checkbox]").on("change",function(){
+var status = $(this).prop('checked')
+console.log("here")
+if(status === true){
+//window.location.href = "../representatives"
+window.location.href = "/bills/active"
+}
+else{
+window.location.href = "bills/all"
+}
+//var url = "../representaitves"
+//$.ajax({
+  //url:url,
+  //type: "get",
+  //data:{status:status}
+//})
+})
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('search');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("test");
+  li = ul.getElementsByTagName("div");
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("div")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
 $(".billTrack").on("click", function(event){
  event.preventDefault();
    //console.log("here")
