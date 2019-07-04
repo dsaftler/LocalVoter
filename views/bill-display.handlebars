@@ -6,7 +6,7 @@
       <li><a href="">My Tracked Bills</a></li>
     </ul>
     <ul class="left hide-on-med-and-down">
-      <li><a href="">My Local Representatives</a></li>
+      <li><a href="../representatives">My Local Representatives</a></li>
     </ul>
     <ul class="right hide-on-med-and-down">
       <li><a href="/" class="btn white" style="color:darkblue">Log Out</a></li>
@@ -20,6 +20,7 @@
       <li><a href="">My Local Reps</a></li>
       <li><a href=""></a>My Settings</li>
       <li><a href="/"></a>Log Out</li>
+      
     </ul>
 
 
@@ -110,15 +111,33 @@
     </div>
   </div>
 </div>
-
 <div class="results">
   {{#each billsData}}
   {{> bill-block}}
   {{/each}}
+         <button class="emailz" value="{{usersEmail}}">Hit to see email variable..</button>
 </div>
 <script src="/js/account.js"></script>
 <script>  // Or with jQuery
+$(".billTrack").on("click", function(event){
+ event.preventDefault();
+   //console.log("here")
+   var usersTrackedBills = {
+    BillID: this.value,
+}
+console.log(usersTrackedBills.BillID)
 
+})
+
+$(".emailz").on("click", function(event){
+ event.preventDefault();
+   //console.log("here")
+   var usersTrackedBills = {
+    usersEmail: this.value,
+}
+console.log(usersTrackedBills.usersEmail)
+
+})
   $(document).ready(function () {
     $('select').formSelect();
   });

@@ -16,14 +16,28 @@ module.exports = function(app) {
     res.render("login");
   });
 
-  app.get("/bills/all", function(req, res) {
-    let state = "fl"
-    let billsInfo = exportBillInfo(state)
-    billsInfo.then(function(allBillInfo) {
-      res.render("bill-display", { billsData: allBillInfo })
+  // app.get("/bills/all", function(req, res) {
+  //   let state = "fl"
+  //   let billsInfo = exportBillInfo(state)
+  //   billsInfo.then(function(allBillInfo) {
+  //     res.render("bill-display", { billsData: allBillInfo })
+  //   });
+  // });
+  app.post("/bills/all", function(req, res)  {
+    var usersEmail = req.body.email
+    app.set('data', usersEmail);
+    console.log(usersEmail)
     });
-  });
-
+   
+  
+    app.get("/bills/all", function(req, res) {
+      let state = "fl"
+      let billsInfo = exportBillInfo(state)
+      billsInfo.then(function(allBillInfo) {
+        res.render("bill-display",{billsData: allBillInfo, usersEmail : app.get('data')})
+      });
+    });
+    
   app.get("/bills/active", function(req, res) {
     var billsInfoActive = exportBillInfo.billsInfoActive;
     res.render("bill-display", { billsData: billsInfoActive });
