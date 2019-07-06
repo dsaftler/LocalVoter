@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   $("#createUser").on("click", event => {
     event.preventDefault();
     let newUser = {
@@ -26,35 +26,35 @@ $(document).ready(function () {
       console.log(data);
     });
   });
-
-    setTimeout(makeUserCookie(), 1000);
-
-    var myVal = getCookie("State");
-    console.log(myVal);
-    setTimeout(window.location.replace("/bills/all"), 1000);
-// emailInput.val();
-// passwordInput.val();
 });
-function makeUserCookie() {
-  $.get("/api/user_data").then(function (data) {
-    console.log(data);
-    delete_cookie("Userid");
-    delete_cookie("State");
-    delete_cookie("Zip");
-    delete_cookie("Username");
-    delete_cookie("Email");
+//     setTimeout(makeUserCookie(), 1000);
 
-    var uid = data.id;
-    uid = uid.toString();
+//     var myVal = getCookie("State");
+//     console.log(myVal);
+//     setTimeout(window.location.replace("/bills/all"), 1000);
+// // emailInput.val();
+// // passwordInput.val();
+// });
+// function makeUserCookie() {
+//   $.get("/api/user_data").then(function (data) {
+//     console.log(data);
+//     delete_cookie("Userid");
+//     delete_cookie("State");
+//     delete_cookie("Zip");
+//     delete_cookie("Username");
+//     delete_cookie("Email");
 
-    document.cookie = "Userid=" + uid;
-    document.cookie = "State=" + data.state;
-    document.cookie = "Zip=" + data.zip;
-    document.cookie = "Username=" + data.username;
-    document.cookie = "Email=" + emailInput.val().trim();
+//     var uid = data.id;
+//     uid = uid.toString();
 
-});
-function getCookie(name) {
-  var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-  return v ? v[2] : null;
-};
+//     document.cookie = "Userid=" + uid;
+//     document.cookie = "State=" + data.state;
+//     document.cookie = "Zip=" + data.zip;
+//     document.cookie = "Username=" + data.username;
+//     document.cookie = "Email=" + emailInput.val().trim();
+
+// });
+// function getCookie(name) {
+//   var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+//   return v ? v[2] : null;
+// };

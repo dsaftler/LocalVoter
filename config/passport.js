@@ -46,17 +46,25 @@ passport.use(
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser(function(user, cb) {
-  var userObj = {
-    uid: user.id,
-    state: user.state,
-    zip: user.zip
+  // var userObj = {
+  //   uid: user.id,
+  //   state: user.state,
+  //   zip: user.zip
+  //   }
+  cb(null, user);
+});
+
+// passport.deserializeUser(function(obj, cb) {
+//   cb(null, obj);
+// });
+passport.deserializeUser(function (user, cb) {
+  db.User.findByPk(user.id).then(function (data) {
+    if (user) {
+      cb(null, user);
+    } else {
+      cb(user.errors, null);
     }
-  cb(null, userObj);
+  });
 });
-
-passport.deserializeUser(function(id, cb) {
-  cb(null, id);
-});
-
 // Exporting our configured passport
 module.exports = passport;

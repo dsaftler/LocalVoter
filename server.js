@@ -1,26 +1,30 @@
+/* eslint-disable no-unused-vars */
 // Dependencies
 require("dotenv").config();
-var keys = require("./keys.js")
-//var Axios = require("axios")
-//var axios = new Axios(axios.defaults.headers.common[keys.billtrack50]);
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
-var db = require("./models");
-var Sequelize = require("sequelize");
-var env = process.env.NODE_ENV || "development";
+const keys = require("./keys.js");
+// var Axios = require("axios")
+// var axios = new Axios(axios.defaults.headers.common[keys.billtrack50]);
+const passport = require("passport");
+require("./config/passport");
+const LocalStrategy = require("passport-local").Strategy;
+const db = require("./models");
+const Sequelize = require("sequelize");
+const env = process.env.NODE_ENV || "development";
 
-var express = require("express");
-const session = require('express-session')
-var app = express();
+const express = require("express");
+const session = require("express-session");
+const app = express();
 // app.use(require('serve-static')(__dirname + './public'));
-var cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 app.use(cookieParser());
-app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(require('express-session')({
-  secret: process.env.SESSION_SECRET,
-  resave: true,
-  saveUninitialized: true
-}));
+app.use(require("body-parser").urlencoded({ extended: true }));
+app.use(
+  require("express-session")({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 // var PORT = 3000;
@@ -35,9 +39,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-
-});
+// eslint-disable-next-line no-empty-function
+db.sequelize.sync(syncOptions).then(function() {});
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -45,7 +48,6 @@ app.use(express.static("public"));
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 // routes
 require("./routes/htmlRoutes")(app);

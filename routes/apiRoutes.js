@@ -1,4 +1,5 @@
 let db = require("../models");
+
 let passport = require("../config/passport");
 
 module.exports = app => {
@@ -9,26 +10,26 @@ module.exports = app => {
       state: req.body.state,
       zip: req.body.zip
     })
-    .then(function() {
-      res.redirect(307, "/api/login");
-    })
-    .catch(function(err) {
-      res.status(401).json(err);
-      console.log(err);
-    });
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        res.status(401).json(err);
+        console.log(err);
+      });
     // console.log(dbUser);
     // console.log(db.User);
   });
 
-  app.post("/api/login/", passport.authenticate("local"), function(req, res) {
-    //successRedirect: '/bills/all/state=:req.state';
-    //failureRedirect: '/login';
-    // req.session[zip] = req.zip;
-    // req.session[state] = req.state;
-    // res.json(req.user);
-    res.send(req.session);
+  app.post("/api/login/", function(req, res, next) {
+    passport.authenticate("local", {
+      successRedirect: "/bills/all",
+      failureRedirect: "/login"
+    })(req, res, next);
+    // const { email, state, zip, username, uid }= req.body;
+    // console.log(req.session);
+    // res.send(req.session);
     // console.log(dbUser);
-    console.log(req.session);
     // return res.redirect('../api/billtrack50/billsJson.js')
   });
 
@@ -50,7 +51,7 @@ module.exports = app => {
         state: req.user.state,
         zip: req.user.zip,
         id: req.user.uid
-      })
+      });
       console.log(res.json);
     }
   });
