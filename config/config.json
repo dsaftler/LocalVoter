@@ -1,10 +1,11 @@
 {
   "development": {
     "username": "root",
-    "password": "passsword",
+    "password": "P35c@d0r3",
     "database": "local_voter",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "user",
