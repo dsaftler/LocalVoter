@@ -17,7 +17,8 @@ module.exports = function(app) {
   });
 
   app.get("/bills/all", function(req, res) {
-    let state = "fl"
+    let state = req.user.state;
+
     let billsInfo = exportBillInfo(state)
     billsInfo.then(function(allBillInfo) {
       res.render("bill-display", { billsData: allBillInfo })

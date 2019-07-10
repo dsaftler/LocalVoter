@@ -1,31 +1,31 @@
-  <!-- Nav Bar -->
-  <nav class="indigo darken-4" role="navigation">
-    <div class="nav-wrapper container"><a href="/"><img id="logo-container" class="brand-logo center"
+<!-- Nav Bar -->
+<nav class="indigo darken-4" role="navigation">
+  <div class="nav-wrapper container"><a href="/"><img id="logo-container" class="brand-logo center"
         src="/assets/LocalVoter_Icon_White.png" alt="Logo" style="height:60px; margin-top:10px"></a>
-      <ul class="left hide-on-med-and-down">
-        <li><a href=""></a>About</li>
-      </ul>
-      <ul class="left hide-on-med-and-down">
-        <li><a href=""></a>Contact</li>
-      </ul>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/signup" class="btn red accent-4" style="color:white">Sign Up</a></li>
-      </ul>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/login">Login</a></li>
-      </ul>
+    <ul class="left hide-on-med-and-down">
+      <li><a href=""></a>About</li>
+    </ul>
+    <ul class="left hide-on-med-and-down">
+      <li><a href=""></a>Contact</li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/signup" class="btn red accent-4" style="color:white">Sign Up</a></li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/login">Login</a></li>
+    </ul>
 
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="/signup">Sign Up</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href=""></a>About</li>
-        <li><a href=""></a>Contact</li>
-      </ul>
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="/signup">Sign Up</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href=""></a>About</li>
+      <li><a href=""></a>Contact</li>
+    </ul>
 
 
-      <a href="" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+    <a href="" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
 {{!-- sign up --}}
 
 <div class="row">
@@ -33,35 +33,35 @@
     <div class="row">
       <div class="col s12 m6 offset-m3">
         <div class="card">
+          <form action="/api/signup" method="POST">
+            <div class="center">
+              <img src="assets/PersonIcon_Red.png" alt="Logo" class="responsive-img valign profile-image-login"
+                style="width:100px; height:100px; margin-top: 15px">
+            </div>
+            <div class="card-content">
 
-          <div class="center">
-            <img src="assets/PersonIcon_Red.png" alt="Logo" class="responsive-img valign profile-image-login"
-              style="width:100px; height:100px; margin-top: 15px">
-          </div>
-          <div class="card-content">
+              <div class="form-field">
+                <label for="emailSU" style="color:darkred">Email Address</label>
+                <input type="text" id="emailSU" name="email">
+              </div><br>
 
-            <div class="form-field">
-              <label for="emailSU" style="color:darkred">Email Address</label>
-              <input type="text" id="emailSU">
-            </div><br>
+              <div class="form-field">
+                <label for="passwordSU" style="color:darkred">Password</label>
+                <input type="password" id="passwordSU" name="password">
+              </div><br>
 
-            <div class="form-field">
-              <label for="passwordSU" style="color:darkred">Password</label>
-              <input type="password" id="passwordSU">
-            </div><br>
-
-            <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input placeholder="Zipcode" id="zipcodeSU" type="text" class="validate">
-                    <label for="zipcodeSU" style="color:darkred">Zipcode</label>
-                  </div>
-<div class="input-field form-control col s12 offset-s2 m5">
-  <input id="stateCodeSU" type="text" class="validate">
-  <label for="stateCodeSU">State</label>
-</div>
-                  {{!-- <div class="input-field col s6">
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input placeholder="Zipcode" name="zip" id="zipcodeSU" type="text" class="validate">
+                      <label for="zipcodeSU" style="color:darkred">Zipcode</label>
+                    </div>
+                    <div class="input-field form-control col s12 offset-s2 m5">
+                      <input id="stateCodeSU" name="state" type="text" class="validate">
+                      <label for="stateCodeSU">State</label>
+                    </div>
+                    {{!-- <div class="input-field col s6">
                     <select id="stateCodeSU">
                       <option value="" disabled selected>Select Your State</option>
                       <option value="AL">Alabama</option>
@@ -117,29 +117,29 @@
                     </select>
                     <label>State</label>
                   </div> --}}
-                </div>
+                  </div>
 
 
-                <div class="form-field">
-                <a href="/bills/all"><button class="btn-large red accent-4 waves-effect waves-light btn" id="createUser"
-                    style="width:100%">Create Account</button></a>
-              </div><br>
-                <br>
+                  <div class="form-field">
+                    <a href=""><button type="submit" class="btn-large red accent-4 waves-effect waves-light btn"
+                        id="createUser" style="width:100%">Create Account</button></a>
+                  </div><br>
+                  <br>
 
-                
-                </div>
+              </div>
+          </form>
 
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    
+  </div>
+</div>
 
 
-    <div class="row">
-      <p class="center" style="margin-bottom:-15px;"> &copy; Copyright 2019</p>
-    </div>
+
+<div class="row">
+  <p class="center" style="margin-bottom:-15px;"> &copy; Copyright 2019</p>
+</div>
 
 <script src="/js/account.js"></script>
 {{!-- <script>  // Or with jQuery
@@ -148,5 +148,5 @@
     $('select').formSelect();
   });
 
-  {{!-- instance.getSelectedValues(); --}}
+  { { !--instance.getSelectedValues(); --} }
 </script> --}}
