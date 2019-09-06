@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
 npm-debug.log
-
-
+.vscode
+.history
 logs
 *.log
 npm-debug.log*
@@ -59,7 +59,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-
+.env
 
 # next.js build output
 .next
