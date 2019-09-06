@@ -1,5 +1,7 @@
-# Project2_Local Voter
-
+#Local Voter
+This is a fork from the original group project SAlidina/Project2_LocalVoter.
+On this fork, I intend to add additional features not supported in the original project because of lack of time.
+Diana Saftler 9/6/2019
 Local Voter Created by:
 * Diana Saftler
 * Sharon Wong
